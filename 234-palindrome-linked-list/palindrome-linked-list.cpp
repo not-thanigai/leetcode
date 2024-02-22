@@ -19,8 +19,6 @@ public:
             ptr=ptr->next;
         }
         for(int i=0;i<p.length()/2;i++){
-                    std:cout << p[i] << p[p.length()-1-i]<< endl;
-
             if( p[i] != p[p.length()-1-i]) return 0; 
         }
         return 1;
