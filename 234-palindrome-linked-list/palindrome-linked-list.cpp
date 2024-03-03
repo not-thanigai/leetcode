@@ -11,7 +11,7 @@
 class Solution {
 public:
     bool isPalindrome(ListNode* head) {
-        string p = "";
+        /*string p = "";
         ListNode * ptr = head;
         while(ptr){
             p+=""+to_string(ptr->val);
@@ -20,6 +20,29 @@ public:
         for(int i=0;i<p.length()/2;i++){
             if( p[i] != p[p.length()-1-i]) return 0; 
         }
+        return 1;*/
+        
+        ListNode *slow = head;
+        ListNode *fast = head;
+        ListNode *prev = NULL;
+        ListNode* temp = NULL;
+        while(fast && fast->next){
+            fast = fast->next->next;
+            temp = slow->next;
+            slow->next = prev;
+            prev = slow;
+            slow = temp;
+        }
+        if(fast) {
+            slow=slow->next;
+        }
+        while(slow && prev){
+            if(slow->val != prev->val) return 0;
+            slow = slow->next;
+            prev = prev->next;
+        }
+
         return 1;
     }
+    
 };
