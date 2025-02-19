@@ -2,7 +2,6 @@ class Solution {
 public:
     int maxProfit(vector<int>& prices) {
         int cmax = prices[0], cmin = prices[0], cmin_index = 0, cmax_index = 0, res=0;
-        
         while(cmax_index < prices.size() - 1){
             for(int j = cmax_index;j < prices.size();j++){
                 if(prices[j] >= cmax){
@@ -20,7 +19,6 @@ public:
                 res = max(res, cmax-cmin);
             }
                 cmax_index++;
-                
         }
         return res;
     }
